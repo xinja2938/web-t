@@ -1,0 +1,522 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: white;
+}
+
+.container {
+    padding: 16px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+}
+
+.search-container {
+    flex-grow: 1;
+    margin: 0 16px;
+}
+
+.search-bar {
+    width: 100%;
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+.search-input {
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-icon {
+    color: #888;
+    cursor: pointer;
+    padding: 6px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.search-icon:hover {
+    color: #ff6d00;
+}
+
+/* Content Sections */
+.section {
+    margin-bottom: 24px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.see-all {
+    color: white;
+    text-decoration: none;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    overflow-x: auto;
+}
+
+.card {
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 150%;
+}
+
+.card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #121212;
+    border-top: 1px solid #333;
+    padding: 8px 0;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #888;
+    font-size: 12px;
+}
+
+.nav-item.active {
+    color: #ff3d00;
+}
+
+.nav-icon {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+/* Detail Page */
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+.back-button, .favorite-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+}
+
+.detail-poster {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.detail-title {
+    font-size: 22px;
+    margin: 16px;
+    text-align: center;
+}
+
+.info-box {
+    background-color: #222;
+    margin: 0 16px 16px;
+    border-radius: 8px;
+}
+
+.info-header {
+    background-color: #ff6d00;
+    color: white;
+    padding: 8px 16px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.info-content {
+    padding: 16px;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.info-label {
+    width: 100px;
+    color: #888;
+}
+
+.info-value {
+    flex-grow: 1;
+}
+
+.episodes-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 16px;
+}
+
+.episode-button {
+    background-color: #4a148c;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.episode-button.new::after {
+    content: "New";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.episode-button.finale::after {
+    content: "Finale";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+#detail-page {
+    padding-bottom: 80px;
+}
+
+/* Authentication */
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 16px;
+}
+
+.auth-logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 24px;
+}
+
+.auth-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.auth-button {
+    background-color: #ff6d00;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 320px;
+}
+
+.login-form .form-group {
+    margin-bottom: 16px;
+}
+
+.login-form .form-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 24px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: white;
+    font-size: 16px;
+}
+
+/* Empty My List */
+.empty-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+    text-align: center;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.empty-list-icon {
+    font-size: 48px;
+    color: #ff6d00;
+    margin-bottom: 16px;
+}
+
+.empty-list-title {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.empty-list-message {
+    color: #888;
+    line-height: 1.5;
+}
+
+/* Admin Panel */
+.admin-container {
+    padding: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.admin-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.admin-title {
+    color: #ff6d00;
+    margin-bottom: 8px;
+}
+
+.admin-form {
+    background-color: #222;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ff6d00;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: white;
+}
+
+.form-section-title {
+    color: #ff6d00;
+    margin: 24px 0 16px;
+}
+
+.episodes-list {
+    margin-bottom: 16px;
+}
+
+.episode-item {
+    display: flex;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.episode-input {
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: white;
+    margin-right: 8px;
+}
+
+.remove-episode {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+.add-episode {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+}
+
+.save-button {
+    background-color: #ff6d00;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 24px;
+    width: 100%;
+    margin-top: 24px;
+}
+
+.manage-posts {
+    background-color: #222;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.posts-list {
+    list-style: none;
+}
+
+.post-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #444;
+}
+
+.post-title {
+    color: white;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    color: #ff6d00;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+/* Dashboard */
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background-color: #222;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 32px;
+    color: #ff6d00;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    color: #888;
+}
+
+/* Profile */
+.profile-container {
+    padding: 16px;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.profile-name {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.profile-email {
+    color: #888;
+    margin-bottom: 24px;
+}
+
+.logout-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 24px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* All Posts */
+.all-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding-bottom: 60px;
+}
