@@ -3,164 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EroEroDub - Anime Streaming Platform</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>EroEroDub Admin Panel</title>
+    <link rel="stylesheet" href="../css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div id="app">
-        <!-- Authentication Screen -->
-        <div id="auth-screen" class="auth-container">
-            <img src="img/logo.png" alt="EroEroDub Logo" class="auth-logo">
-            <h1 class="auth-title">Welcome to EroEroDub</h1>
-            <form id="login-form" class="login-form">
+    <div id="admin-app">
+        <!-- Admin Login -->
+        <div id="admin-login" class="auth-container">
+            <img src="../img/logo.png" alt="EroEroDub Logo" class="auth-logo">
+            <h1 class="auth-title">Admin Login</h1>
+            <div class="admin-form" style="width: 100%; max-width: 400px;">
                 <div class="form-group">
-                    <input type="text" id="login-name" placeholder="Your Name" required class="form-input">
+                    <label class="form-label">Email</label>
+                    <input type="email" id="admin-email" class="form-input" placeholder="Enter your email">
                 </div>
                 <div class="form-group">
-                    <input type="email" id="login-email" placeholder="Your Email" required class="form-input">
+                    <label class="form-label">Password</label>
+                    <input type="password" id="admin-password" class="form-input" placeholder="Enter your password">
                 </div>
-                <button type="submit" class="auth-button">Login</button>
-            </form>
+                <button id="admin-login-btn" class="save-button">Login</button>
+            </div>
         </div>
 
-        <!-- Main Content -->
-        <div id="main-content" style="display: none;">
-            <!-- Header -->
-            <div class="header">
-                <img src="img/logo.png" alt="EroEroDub Logo" class="logo">
-                <div class="search-container">
-                    <div class="search-bar">
-                        <input type="text" placeholder="Search" class="search-input" id="search-input">
-                        <i class="fas fa-search search-icon" id="search-button"></i>
-                    </div>
+        <!-- Admin Dashboard -->
+        <div id="admin-dashboard" class="admin-container" style="display: none;">
+            <div class="admin-header">
+                <h1 class="admin-title">EroEroDub Admin Panel</h1>
+                <button id="admin-logout-btn" class="logout-button" style="margin-bottom: 20px;">Logout</button>
+            </div>
+
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="total-users">0</div>
+                    <div class="stat-label">Total Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="most-clicked">0</div>
+                    <div class="stat-label">Most Clicked Series</div>
                 </div>
             </div>
 
-            <!-- Home Content -->
-            <div id="home-content" class="container">
-                <!-- New Episode Releases -->
-                <div class="section">
-                    <div class="section-header">
-                        <h2 class="section-title">New Episode Releases</h2>
-                        <a href="#" class="see-all" data-target="all">See All</a>
-                    </div>
-                    <div class="cards-container" id="new-episodes">
-                        <!-- Cards will be added dynamically -->
-                    </div>
+            <div class="admin-form">
+                <h2 class="form-section-title">Add New Anime</h2>
+                <div class="form-group">
+                    <label class="form-label">Series Info</label>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    <input type="text" id="series-name" class="form-input" placeholder="Enter series name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Language</label>
+                    <input type="text" id="series-language" class="form-input" placeholder="Enter language">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Quality</label>
+                    <input type="text" id="series-quality" class="form-input" placeholder="Enter quality">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Poster Image URL</label>
+                    <input type="text" id="series-poster" class="form-input" placeholder="Enter poster image URL">
                 </div>
 
-                <!-- Most Favorite -->
-                <div class="section">
-                    <div class="section-header">
-                        <h2 class="section-title">Most Favorite</h2>
-                        <a href="#" class="see-all" data-target="all">See All</a>
+                <h2 class="form-section-title">Watch Now</h2>
+                <div class="form-group">
+                    <label class="form-label">Add Episodes</label>
+                    <div id="episodes-list" class="episodes-list">
+                        <!-- Episode inputs will be added dynamically -->
                     </div>
-                    <div class="cards-container" id="most-favorite">
-                        <!-- Cards will be added dynamically -->
-                    </div>
-                </div>
-
-                <!-- Best EP -->
-                <div class="section">
-                    <div class="section-header">
-                        <h2 class="section-title">Best EP</h2>
-                        <a href="#" class="see-all" data-target="all">See All</a>
-                    </div>
-                    <div class="cards-container" id="best-ep">
-                        <!-- Cards will be added dynamically -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- All Content -->
-            <div id="all-content" class="container" style="display: none;">
-                <h2 class="section-title">All Episodes</h2>
-                <div class="all-posts-grid" id="all-posts">
-                    <!-- Cards will be added dynamically -->
-                </div>
-            </div>
-
-            <!-- My List Content -->
-            <div id="my-list-content" class="container" style="display: none;">
-                <h2 class="section-title">My List</h2>
-                <div class="all-posts-grid" id="my-list-posts">
-                    <!-- Cards will be added dynamically -->
-                </div>
-            </div>
-
-            <!-- Profile Content -->
-            <div id="profile-content" class="profile-container" style="display: none;">
-                <div class="profile-header">
-                    <h2 class="profile-name" id="profile-name">User Name</h2>
-                    <p class="profile-email" id="profile-email">user@example.com</p>
-                    <button id="logout-btn" class="logout-button">Log Out</button>
-                </div>
-            </div>
-
-            <!-- Detail Page -->
-            <div id="detail-page" style="display: none;">
-                <div class="detail-header">
-                    <button id="back-button" class="back-button">
-                        <i class="fas fa-times"></i>
-                    </button>
-                    <button id="favorite-button" class="favorite-button">
-                        <i class="far fa-heart"></i>
+                    <button id="add-episode-btn" class="add-episode">
+                        <i class="fas fa-plus"></i> Add Episode
                     </button>
                 </div>
 
-                <img id="detail-poster" src="" alt="Anime Poster" class="detail-poster">
-                <h2 id="detail-title" class="detail-title"></h2>
-
-                <div class="info-box">
-                    <div class="info-header">Series Info</div>
-                    <div class="info-content">
-                        <div class="info-row">
-                            <div class="info-label">Name</div>
-                            <div id="detail-name" class="info-value"></div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-label">Language</div>
-                            <div id="detail-language" class="info-value"></div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-label">Quality</div>
-                            <div id="detail-quality" class="info-value"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-box">
-                    <div class="info-header">Watch Now</div>
-                    <div id="episodes-container" class="episodes-container">
-                        <!-- Episode buttons will be added dynamically -->
-                    </div>
-                </div>
+                <button id="save-post-btn" class="save-button">Save Post</button>
             </div>
 
-            <!-- Bottom Navigation -->
-            <div class="bottom-nav">
-                <a href="#" class="nav-item active" data-target="home">
-                    <i class="fas fa-home nav-icon"></i>
-                    <span>Home</span>
-                </a>
-                <a href="#" class="nav-item" data-target="all">
-                    <i class="fas fa-list-ul nav-icon"></i>
-                    <span>All</span>
-                </a>
-                <a href="#" class="nav-item" data-target="my-list">
-                    <i class="fas fa-heart nav-icon"></i>
-                    <span>My List</span>
-                </a>
-                <a href="#" class="nav-item" data-target="profile">
-                    <i class="fas fa-user nav-icon"></i>
-                    <span>Profile</span>
-                </a>
+            <div class="manage-posts">
+                <h2 class="form-section-title">Manage Posts</h2>
+                <ul id="posts-list" class="posts-list">
+                    <!-- Posts will be added dynamically -->
+                </ul>
             </div>
         </div>
     </div>
 
-    <script src="js/app.js"></script>
+    <script src="../js/admin.js"></script>
 </body>
 </html>
