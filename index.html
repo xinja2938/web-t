@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EroEroDub - Anime Streaming Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Authentication Screen -->
+        <div id="auth-screen" class="auth-container">
+            <img src="img/logo.png" alt="EroEroDub Logo" class="auth-logo">
+            <h1 class="auth-title">Welcome to EroEroDub</h1>
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <input type="text" id="login-name" placeholder="Your Name" required class="form-input">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="login-email" placeholder="Your Email" required class="form-input">
+                </div>
+                <button type="submit" class="auth-button">Login</button>
+            </form>
+        </div>
+
+        <!-- Main Content -->
+        <div id="main-content" style="display: none;">
+            <!-- Header -->
+            <div class="header">
+                <img src="img/logo.png" alt="EroEroDub Logo" class="logo">
+                <div class="search-container">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search" class="search-input" id="search-input">
+                        <i class="fas fa-search search-icon" id="search-button"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Content -->
+            <div id="home-content" class="container">
+                <!-- New Episode Releases -->
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">New Episode Releases</h2>
+                        <a href="#" class="see-all" data-target="all">See All</a>
+                    </div>
+                    <div class="cards-container" id="new-episodes">
+                        <!-- Cards will be added dynamically -->
+                    </div>
+                </div>
+
+                <!-- Most Favorite -->
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">Most Favorite</h2>
+                        <a href="#" class="see-all" data-target="all">See All</a>
+                    </div>
+                    <div class="cards-container" id="most-favorite">
+                        <!-- Cards will be added dynamically -->
+                    </div>
+                </div>
+
+                <!-- Best EP -->
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">Best EP</h2>
+                        <a href="#" class="see-all" data-target="all">See All</a>
+                    </div>
+                    <div class="cards-container" id="best-ep">
+                        <!-- Cards will be added dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- All Content -->
+            <div id="all-content" class="container" style="display: none;">
+                <h2 class="section-title">All Episodes</h2>
+                <div class="all-posts-grid" id="all-posts">
+                    <!-- Cards will be added dynamically -->
+                </div>
+            </div>
+
+            <!-- My List Content -->
+            <div id="my-list-content" class="container" style="display: none;">
+                <h2 class="section-title">My List</h2>
+                <div class="all-posts-grid" id="my-list-posts">
+                    <!-- Cards will be added dynamically -->
+                </div>
+            </div>
+
+            <!-- Profile Content -->
+            <div id="profile-content" class="profile-container" style="display: none;">
+                <div class="profile-header">
+                    <h2 class="profile-name" id="profile-name">User Name</h2>
+                    <p class="profile-email" id="profile-email">user@example.com</p>
+                    <button id="logout-btn" class="logout-button">Log Out</button>
+                </div>
+            </div>
+
+            <!-- Detail Page -->
+            <div id="detail-page" style="display: none;">
+                <div class="detail-header">
+                    <button id="back-button" class="back-button">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <button id="favorite-button" class="favorite-button">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+
+                <img id="detail-poster" src="" alt="Anime Poster" class="detail-poster">
+                <h2 id="detail-title" class="detail-title"></h2>
+
+                <div class="info-box">
+                    <div class="info-header">Series Info</div>
+                    <div class="info-content">
+                        <div class="info-row">
+                            <div class="info-label">Name</div>
+                            <div id="detail-name" class="info-value"></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Language</div>
+                            <div id="detail-language" class="info-value"></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Quality</div>
+                            <div id="detail-quality" class="info-value"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-header">Watch Now</div>
+                    <div id="episodes-container" class="episodes-container">
+                        <!-- Episode buttons will be added dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <div class="bottom-nav">
+                <a href="#" class="nav-item active" data-target="home">
+                    <i class="fas fa-home nav-icon"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item" data-target="all">
+                    <i class="fas fa-list-ul nav-icon"></i>
+                    <span>All</span>
+                </a>
+                <a href="#" class="nav-item" data-target="my-list">
+                    <i class="fas fa-heart nav-icon"></i>
+                    <span>My List</span>
+                </a>
+                <a href="#" class="nav-item" data-target="profile">
+                    <i class="fas fa-user nav-icon"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
